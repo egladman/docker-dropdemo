@@ -9,6 +9,7 @@ RUN set -eux; \
 
 COPY /entrypoint/docker-entrypoint.sh /
 COPY /entrypoint/10-fix-permissions.sh /docker-entrypoint.d
+COPY /entrypoint/default /var/cache/docker-command
 
 RUN set -eux; \
     chmod +x /docker-entrypoint.sh /docker-entrypoint.d/*
