@@ -38,7 +38,7 @@ log::info "Finished configuration. Launching ${@::1}"
 
 if [[ $(id -u) -eq 0 ]] && [[ -n "$UID" ]]; then
     log::info "Running as root. Dropping privileges to uid ${UID}."
-    exec gosu $UID:$GID "$@"
+    set -- gosu $UID:$GID "$@"
 fi
 
 exec "$@"
